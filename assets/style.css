@@ -1,0 +1,391 @@
+/*__________________________________________general attributes here*/
+* {
+        box-sizing: border-box;
+    }
+body {
+    font-family: 'Merriweather';
+    padding: 0px;
+    margin: 0px;
+    background-color: lightgreen;
+}
+
+/*@media only screen and (min-width: 1200px) {*/
+/*    .vizcontainer{*/
+        /*max-width: 1200px;*/
+        /*height: 800px;*/
+/*    }*/
+/*    .words {*/
+/*        transform: scale(1.3);*/
+/*    }*/
+    
+/*}*/
+
+/*__________________________________________layout attributes here*/
+.main-content {
+    box-sizing: border-box;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.vizcontainer {
+    display: flex;
+    flex-direction: row;
+    /*align-self: stretch;*/
+    justify-content: center;
+}
+.intro_context {
+    width: 60%;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-color: white;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+.smalllegend_k12,.smalllegend_github{
+    font-family: 'IBM Plex Serif';
+    font-size: 16px;
+    line-height: 30px;
+    /*color: #f9a260;*/
+}
+.smalllegend_k12{
+    color: #ffa059;
+}
+.smalllegend_github{
+    color: #5ecee5;
+}
+
+/*__________________________________________viz attributes here*/
+#viz1,#viz3{
+    background-color: #ffa059;
+    /*align-items: flex-end;*/
+}
+#viz2,#viz4{
+    background-color: #5ecee5;
+    /*align-items: flex-start;*/
+}
+#viz5{
+    background-color: lightgrey;
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 3%;
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    /*flex-wrap: wrap-reverse;*/
+    /*align-content: flex-start;*/
+}
+#viz1,#viz2,#viz3,#viz4 {
+    display: flex; 
+    width: 50%;
+    /*height: 80vh;*/
+    height: auto;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 3%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    align-content: center;
+    /*justify-content: flex-start;*/
+}
+.words {
+    /*display: block;*/
+    /*margin: 10px;*/
+    color: white;
+    opacity: 0.4;
+    /*background-color: #f94107;*/
+    font-family: 'IBM Plex Sans Condensed';
+    text-transform: Uppercase;
+    font-weight: 700;
+}
+
+/*___________________________ basegraph on bottom of word clouds */
+.bases{
+    font-family: 'IBM Plex Mono';
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 2px 2px lightgrey;
+    color: black;
+    flex-wrap: wrap;
+    /*height: 90px;*/
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    flex-direction: column;
+}
+.textrow,.graphrow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.textrow{
+    justify-content: center;
+}
+.graphrow{
+    justify-content: center;
+}
+
+.lefttxt, .centertxt, .righttxt, .graphrow, .leftgraph, .rightgraph{
+    /*background-color: snow;*/
+    /*border-right: 1px solid red;*/
+}
+.leftgraph, .rightgraph{
+    flex-grow: 1;
+}
+.lefttxt{
+    text-align: left;
+    flex-basis: 25%;
+}
+.righttxt{
+    text-align: right;
+    flex-basis: 25%;
+}
+.centertxt{
+    font-family: 'IBM Plex Sans Condensed';
+    text-transform: uppercase;
+    font-size: 32px;
+    text-align: center;
+    flex-basis: 75%;
+}
+.bignumber1,.bignumber2{
+    font-family: 'IBM Plex Sans Condensed';
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 16px;
+}
+.bignumber1{
+    color: #ffa059;  
+}
+.bignumber2{
+    color: #5ecee5;  
+}
+.barCanvas{
+    width: 99%;
+    height: 45px;
+    padding-top: 15px;
+    /*background-color: yellow;*/
+}
+.barGroup{
+    
+}
+.barBase, .barReg{
+    x: 0;
+    y: 0;
+    height: 30px;
+}
+.barBase{
+    opacity: 0.4;
+}
+.barReg{
+    opacity: 1;
+}
+.toremove{
+    width: 99%;
+    height: 45px;
+    padding-top: 15px;
+}
+/*__________________________________________header attributes here*/
+.grad{
+  background: linear-gradient(to right, #ffa059 , #5ecee5)
+}
+.h01{
+	font-family: 'IBM Plex Serif';
+	font-weight: 700;
+	line-height: 95%;
+	padding-left: 10px;
+	margin: 0;
+	color: black;
+	font-size: 72px;
+}
+.h02{
+    font-family: 'IBM Plex Serif';
+    font-weight: 400;
+    padding-left: 10px;
+    margin: 0;
+    color: black;
+    font-size: 28px;
+}
+.h03{
+    font-family: 'IBM Plex Sans Condensed';
+    font-weight: 400;
+    padding-left: 10px;
+    margin: 0;
+    color: black;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+.altholder{
+    width: 80%;
+    height: 60%;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.bigt{
+    position: fixed;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: stretch;*/
+    width: 100%;
+    height: 100vh;
+    /*background-image: url(assets/vs.png);*/
+  /*  background: url(images/bg.jpg) no-repeat center center fixed; */
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*-o-background-size: cover;*/
+  /*background-size: cover;*/
+}
+.piletxt{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.bigt2{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /*background-image: url(assets/vs.png);*/
+  /*  background: url(images/bg.jpg) no-repeat center center fixed; */
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*-o-background-size: cover;*/
+  /*background-size: cover;*/
+}
+.hed{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*margin-top: 50px;*/
+    height: 80vh;
+}
+.hedparts{
+    padding: 10px;
+    font-family: 'IBM Plex Serif';
+    text-align: center;
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: black
+}
+.bigtitleopener{
+    align-self: center;
+    height: 20vh;
+    background-color: black;
+    font-family: 'Open Sans';
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;    
+    /*font-weight: bold;*/
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 20px;
+    /*margin-top: 20px;*/
+    /*margin-bottom: 50px;*/
+    /*border-top: 1px solid lightgrey;*/
+    /*border-bottom: 1px solid lightgrey;*/
+}
+#vs{
+    padding: 10px;
+    font-family: 'IBM Plex Serif';
+    text-align: center;
+    font-size: 120px;
+    line-height: 80px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+    /*opacity: 0;*/
+}
+
+
+/*__________________________________________type attributes here*/
+h5 {
+    font-size: 28px;
+    font-family: 'IBM Plex Serif';
+    line-height: 24px;
+    color: #ffc249;
+    font-weight: 200;
+}
+.strong1 {
+    font-weight: 900;
+    border-bottom: 3px solid #ffa059;  
+}
+.strong2 {
+    font-weight: 900;
+    border-bottom: 3px solid #5ecee5;  
+}
+
+/*__________________________________________graphical attributes*/
+.tracer {
+    position: absolute;
+    border-top: 1px dashed black;
+    border-left: 1px dashed black;
+}
+.step{
+    text-align: center;
+    font-weight: 700;
+}
+.btnholder{
+    /*background-color: white;*/
+    /*display: block;*/
+}
+button{
+    font-family: 'Open Sans';
+    font-weight: bold;
+    background-color: #5ecee5;
+    letter-spacing: 1px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    text-transform: uppercase;
+    border-style: none;
+    box-shadow: 0px 2px 2px lightgrey;
+    
+}
+button:hover, button:active, button:on{
+    background-color: black;
+    box-shadow: 0px 0px 0px lightgrey;
+}
+.connector,.connector2{
+    box-sizing: content-box;
+    position: absolute;
+    visibility: visible;
+    border-top: 3px solid black;
+    z-index: 1;
+}
+.connector{
+    border-right: 3px solid black;
+}
+.connector2{
+    border-left: 3px solid black;
+}
