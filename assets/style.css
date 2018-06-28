@@ -17,7 +17,7 @@ body {
 /*    .words {*/
 /*        transform: scale(1.3);*/
 /*    }*/
-    
+
 /*}*/
 
 /*__________________________________________layout attributes here*/
@@ -89,7 +89,7 @@ img{
     /*align-content: flex-start;*/
 }
 #viz1,#viz2,#viz3,#viz4 {
-    display: flex; 
+    display: flex;
     width: 50%;
     /*height: 80vh;*/
     height: auto;
@@ -172,10 +172,10 @@ img{
     line-height: 16px;
 }
 .bignumber1{
-    color: #ffa059;  
+    color: #ffa059;
 }
 .bignumber2{
-    color: #5ecee5;  
+    color: #5ecee5;
 }
 .barCanvas{
     width: 99%;
@@ -184,7 +184,7 @@ img{
     /*background-color: yellow;*/
 }
 .barGroup{
-    
+
 }
 .barBase, .barReg{
     x: 0;
@@ -305,7 +305,7 @@ img{
     font-size: 16px;
     line-height: 30px;
     text-transform: uppercase;
-    letter-spacing: 4px;    
+    letter-spacing: 4px;
     /*font-weight: bold;*/
     color: white;
     padding-top: 12px;
@@ -338,11 +338,11 @@ h5 {
 }
 .strong1 {
     font-weight: 900;
-    border-bottom: 3px solid #ffa059;  
+    border-bottom: 3px solid #ffa059;
 }
 .strong2 {
     font-weight: 900;
-    border-bottom: 3px solid #5ecee5;  
+    border-bottom: 3px solid #5ecee5;
 }
 
 /*__________________________________________graphical attributes*/
@@ -370,7 +370,7 @@ button{
     text-transform: uppercase;
     border-style: none;
     box-shadow: 0px 2px 2px lightgrey;
-    
+
 }
 button:hover, button:active, button:on{
     background-color: black;
