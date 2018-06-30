@@ -1,43 +1,37 @@
-//dando oi para o navegador - hi to our browser
-console.log('hi dere');
-
-//dados simples - simple array of data
-var data = [{type: 'positive', percentage: 29}, {type: 'negative', percentage: 71}];
-
-console.log(data);
-
-//carregar 1o infografico - loading our 1st viz
-
-
 var svg = d3
-.select('#viz1')
+.select('#viz0')
 .append('svg')
 .attr('width', '100%')
-.attr('height', '650px')
+.attr('height', '150px')
 .call(responsivefy)
 ;
 
 var elementw = svg.node().getBoundingClientRect();
-
 console.log(elementw.width);
+console.log(elementw.height);
 
-svg
-.append('circle')
-.attr('fill','purple')
-.attr('r', function(){return (elementw.width/1.5)*(Math.sqrt(Math.PI/71))})
-.attr('cx', function(){return 2*(elementw.width/3)})
-.attr('cy', '325')
-.attr('opacity', .5)
-;
+var width = elementw.width;
+var height = elementw.height;
 
-svg
-.append('circle')
-.attr('fill','pink')
-.attr('r', function(){return (elementw.width/1.5)*(Math.sqrt(Math.PI/29))})
-.attr('cx', function(){return elementw.width/3})
-.attr('cy', '325')
-.attr('opacity', .5)
-;
+var tr = [width / 1.2, height / 3.8];
+var scale = [width * .67];
+
+console.log(tr);
+
+var map = d3.geomap.choropleth()
+    .geofile('/data/BRA.json')
+    // .projection(d3.geo.albersUsa)
+    .column('total')
+    .unitId('fips')
+    .scale(scale)
+    .translate(tr)
+    .legend(true);
+
+d3.csv('/data/mapabr.csv', function(error, data) {
+    d3.select('#viz0')
+        .datum(data)
+        .call(map.draw, map);
+});
 
 
 function responsivefy(svg) {

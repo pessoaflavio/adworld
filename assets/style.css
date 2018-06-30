@@ -3,10 +3,10 @@
         box-sizing: border-box;
     }
 body {
-    font-family: 'Merriweather';
+    font-family: 'Open Sans';
     padding: 0px;
     margin: 0px;
-    background-color: lightgreen;
+    /*background-color: lightgreen;*/
 }
 
 /*@media only screen and (min-width: 1200px) {*/
@@ -47,7 +47,7 @@ body {
     width: 60%;
     padding-top: 40px;
     padding-bottom: 30px;
-    background-color: white;
+    max-width: 1000px;
 }
 
 img{
@@ -68,14 +68,7 @@ img{
 }
 
 /*__________________________________________viz attributes here*/
-#viz1,#viz3{
-    background-color: #ffa059;
-    /*align-items: flex-end;*/
-}
-#viz2,#viz4{
-    background-color: #5ecee5;
-    /*align-items: flex-start;*/
-}
+
 #viz5{
     background-color: lightgrey;
     width: 100%;
@@ -88,14 +81,14 @@ img{
     /*flex-wrap: wrap-reverse;*/
     /*align-content: flex-start;*/
 }
-#viz1,#viz2,#viz3,#viz4 {
+#viz0,#viz1,#viz2,#viz3,#viz4 {
     display: flex;
-    width: 50%;
+    width: 100%;
     /*height: 80vh;*/
     height: auto;
     overflow: auto;
     box-sizing: border-box;
-    padding: 3%;
+    /*padding: 3%;*/
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap-reverse;
@@ -207,25 +200,25 @@ img{
   background: linear-gradient(to right, #ffa059 , #5ecee5)
 }
 .h01{
-	font-family: 'IBM Plex Serif';
-	font-weight: 700;
-	line-height: 95%;
-	padding-left: 10px;
-	margin: 0;
+    box-sizing: border-box;
+	font-weight: 300;
+    font-family: 'Open Sans';
 	color: black;
-	font-size: 72px;
+	font-size: 90px;
+	color: #5b2e90;
+    padding-top: 50px;
+    margin-bottom: 30px;
+    line-height: 90%;
 }
 .h02{
-    font-family: 'IBM Plex Serif';
-    font-weight: 400;
+	font-weight: 700;
     padding-left: 10px;
     margin: 0;
-    color: black;
+    color: #5b2e90;
     font-size: 28px;
 }
 .h03{
-    font-family: 'IBM Plex Sans Condensed';
-    font-weight: 400;
+
     padding-left: 10px;
     margin: 0;
     color: black;
@@ -287,7 +280,6 @@ img{
 }
 .hedparts{
     padding: 10px;
-    font-family: 'IBM Plex Serif';
     text-align: center;
     font-size: 48px;
     line-height: 40px;
