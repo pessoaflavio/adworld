@@ -104,7 +104,7 @@ function m_on(){
     
     console.log(thisId);
     
-    d3.select('#vi')
+    d3.select('#viz2')
     .append('text')
     .text(thisId)
     .attr('font-size', '12px')

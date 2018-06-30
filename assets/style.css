@@ -6,7 +6,6 @@ body {
     font-family: 'Open Sans';
     padding: 0px;
     margin: 0px;
-    /*background-color: lightgreen;*/
 }
 
 /*@media only screen and (min-width: 1200px) {*/
@@ -54,6 +53,19 @@ img{
     width: 100%;
     height: auto;
 }
+
+.valueHolder {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+._holder {
+    flex-basis: 25%;
+}
+
+
+
+
 .smalllegend_k12,.smalllegend_github{
     font-family: 'IBM Plex Serif';
     font-size: 16px;
@@ -69,264 +81,39 @@ img{
 
 /*__________________________________________viz attributes here*/
 
-#viz5{
-    background-color: lightgrey;
-    width: 100%;
-    height: 600px;
-    overflow: auto;
-    box-sizing: border-box;
-    padding: 3%;
-    /*flex-direction: row;*/
-    /*justify-content: center;*/
-    /*flex-wrap: wrap-reverse;*/
-    /*align-content: flex-start;*/
-}
 #viz0,#viz1,#viz2,#viz3,#viz4 {
     display: flex;
     width: 100%;
-    /*height: 80vh;*/
     height: auto;
     overflow: auto;
     box-sizing: border-box;
-    /*padding: 3%;*/
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap-reverse;
     align-content: center;
     /*justify-content: flex-start;*/
 }
-.words {
-    /*display: block;*/
-    /*margin: 10px;*/
-    color: white;
-    opacity: 0.4;
-    /*background-color: #f94107;*/
-    font-family: 'IBM Plex Sans Condensed';
-    text-transform: Uppercase;
-    font-weight: 700;
-}
 
-/*___________________________ basegraph on bottom of word clouds */
-.bases{
-    font-family: 'IBM Plex Mono';
-    font-size: 12px;
-    line-height: 12px;
-    display: flex;
-    background-color: white;
-    box-shadow: 0px 2px 2px lightgrey;
-    color: black;
-    flex-wrap: wrap;
-    /*height: 90px;*/
-    width: 80%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 15px;
-    flex-direction: column;
-}
-.textrow,.graphrow{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-.textrow{
-    justify-content: center;
-}
-.graphrow{
-    justify-content: center;
-}
 
-.lefttxt, .centertxt, .righttxt, .graphrow, .leftgraph, .rightgraph{
-    /*background-color: snow;*/
-    /*border-right: 1px solid red;*/
-}
-.leftgraph, .rightgraph{
-    flex-grow: 1;
-}
-.lefttxt{
-    text-align: left;
-    flex-basis: 25%;
-}
-.righttxt{
-    text-align: right;
-    flex-basis: 25%;
-}
-.centertxt{
-    font-family: 'IBM Plex Sans Condensed';
-    text-transform: uppercase;
-    font-size: 32px;
-    text-align: center;
-    flex-basis: 75%;
-}
-.bignumber1,.bignumber2{
-    font-family: 'IBM Plex Sans Condensed';
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 16px;
-}
-.bignumber1{
-    color: #ffa059;
-}
-.bignumber2{
-    color: #5ecee5;
-}
-.barCanvas{
-    width: 99%;
-    height: 45px;
-    padding-top: 15px;
-    /*background-color: yellow;*/
-}
-.barGroup{
-
-}
-.barBase, .barReg{
-    x: 0;
-    y: 0;
-    height: 30px;
-}
-.barBase{
-    opacity: 0.4;
-}
-.barReg{
-    opacity: 1;
-}
-.toremove{
-    width: 99%;
-    height: 45px;
-    padding-top: 15px;
-}
 /*__________________________________________header attributes here*/
-.grad{
-  background: linear-gradient(to right, #ffa059 , #5ecee5)
-}
-.h01{
-    box-sizing: border-box;
-	font-weight: 300;
-    font-family: 'Open Sans';
-	color: black;
-	font-size: 90px;
-	color: #5b2e90;
-    padding-top: 50px;
-    margin-bottom: 30px;
-    line-height: 90%;
-}
-.h02{
-	font-weight: 700;
-    padding-left: 10px;
-    margin: 0;
-    color: #5b2e90;
-    font-size: 28px;
-}
-.h03{
 
-    padding-left: 10px;
-    margin: 0;
-    color: black;
-    text-transform: uppercase;
-    font-size: 22px;
-}
-.altholder{
-    width: 80%;
-    height: 60%;
-    padding-top: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-.bigt{
-    position: fixed;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*align-items: stretch;*/
-    width: 100%;
-    height: 100vh;
-    /*background-image: url(assets/vs.png);*/
-  /*  background: url(images/bg.jpg) no-repeat center center fixed; */
-  /*-webkit-background-size: cover;*/
-  /*-moz-background-size: cover;*/
-  /*-o-background-size: cover;*/
-  /*background-size: cover;*/
-}
-.piletxt{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.bigt2{
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    /*background-image: url(assets/vs.png);*/
-  /*  background: url(images/bg.jpg) no-repeat center center fixed; */
-  /*-webkit-background-size: cover;*/
-  /*-moz-background-size: cover;*/
-  /*-o-background-size: cover;*/
-  /*background-size: cover;*/
-}
-.hed{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /*margin-top: 50px;*/
-    height: 80vh;
-}
-.hedparts{
-    padding: 10px;
-    text-align: center;
-    font-size: 48px;
-    line-height: 40px;
-    font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: black
-}
-.bigtitleopener{
-    align-self: center;
-    height: 20vh;
-    background-color: black;
-    font-family: 'Open Sans';
-    text-align: center;
-    font-size: 16px;
-    line-height: 30px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    /*font-weight: bold;*/
-    color: white;
-    padding-top: 12px;
-    padding-bottom: 20px;
-    /*margin-top: 20px;*/
-    /*margin-bottom: 50px;*/
-    /*border-top: 1px solid lightgrey;*/
-    /*border-bottom: 1px solid lightgrey;*/
-}
-#vs{
-    padding: 10px;
-    font-family: 'IBM Plex Serif';
-    text-align: center;
-    font-size: 120px;
-    line-height: 80px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: black;
-    /*opacity: 0;*/
-}
+
 
 
 /*__________________________________________type attributes here*/
-h5 {
-    font-size: 28px;
-    font-family: 'IBM Plex Serif';
-    line-height: 24px;
-    color: #ffc249;
-    font-weight: 200;
+.h01{
+    font-size: 90px;
+    line-height: 86px;
+    font-weight: 300;
+    color:#5b2e90;
+    margin-bottom: 60px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: #5b2e90;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;    
 }
 .strong1 {
     font-weight: 900;
@@ -335,6 +122,12 @@ h5 {
 .strong2 {
     font-weight: 900;
     border-bottom: 3px solid #5ecee5;
+}
+.BigNumber {
+    font-size: 60px;
+    line-height: 56px;
+    font-weight: 300;
+    opacity: .6;
 }
 
 /*__________________________________________graphical attributes*/
