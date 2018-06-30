@@ -19,7 +19,7 @@ var scale = [width * .67];
 console.log(tr);
 
 var map = d3.geomap.choropleth()
-    .geofile('/data/BRA.json')
+    .geofile('data/BRA.json')
     // .projection(d3.geo.albersUsa)
     .column('total')
     .unitId('fips')
@@ -27,7 +27,7 @@ var map = d3.geomap.choropleth()
     .translate(tr)
     .legend(true);
 
-d3.csv('/data/mapabr.csv', function(error, data) {
+d3.csv('data/mapabr.csv', function(error, data) {
     d3.select('#viz0')
         .datum(data)
         .call(map.draw, map);
