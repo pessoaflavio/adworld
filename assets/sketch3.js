@@ -20,6 +20,11 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     .html(function(d){return '<h3>' + d.cat + '</h3>'})
     ;
     
+    div1
+    .append('p')
+    .text(function(d){return d.desc})
+    ;
+    
     var valueHolder = div1
     .append('div')
     .attr('class','valueHolder')
@@ -28,36 +33,39 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     valueHolder
     .append('div')
     .attr('class','_holder')
-    .html(function(d){return '<small>Grand Prix</small><br><span class="BigNumber">' + d.gp_valor + '%</span><br>' + d.gp_nome})
+    .style('background-color', '#f16664')
+    .style('border-left', 'none')
+    .html(function(d){return '<small>Grand Prix</small><br><span class="BigNumber">' + d.gp_valor + '%</span><br><p class="detalhe">' + d.gp_nome + '</p>'})
     ;
     
     valueHolder
     .append('div')
     .attr('class','_holder')
-    .html(function(d){return '<small>Ouro</small><br><span class="BigNumber">' + d.o_valor + '%</span><br>' + d.o_nome})
+    .style('background-color', '#f98646')
+    .html(function(d){return '<small>Ouro</small><br><span class="BigNumber">' + d.o_valor + '%</span><br><p class="detalhe">' + d.o_nome + '</p>'})
     ;
     
     valueHolder
     .append('div')
     .attr('class','_holder')
-    .html(function(d){return '<small>Prata</small><br><span class="BigNumber">' + d.p_valor + '%</span><br>' + d.p_nome})
+    .style('background-color', '#ff99b1')
+    .html(function(d){return '<small>Prata</small><br><span class="BigNumber">' + d.p_valor + '%</span><br><p class="detalhe">' + d.p_nome + '</p>'})
     ;
     
     valueHolder
     .append('div')
     .attr('class','_holder')
-    .html(function(d){return '<small>Bronze</small><br><span class="BigNumber">' + d.b_valor + '%</span><br>' + d.b_nome})
+    .style('background-color', '#ffb6c1')
+    .html(function(d){return '<small>Bronze</small><br><span class="BigNumber">' + d.b_valor + '%</span><br><p class="detalhe">' + d.b_nome + '</p>'})
     ;
-
-    
     
     var svg = div1
     .append('svg')
     .attr('width', '100%')
     .attr('id', function(d){return 'dots_' + d.cat})
+    .attr('class', 'dotsViz')
     .attr('height', '650px')
     ;
-    
     
     var elementw = svg.node().getBoundingClientRect();
     // console.log(elementw.width);

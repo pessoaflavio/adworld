@@ -1,3 +1,5 @@
+/*cores #f16664 #ff7c8d #ff99b1 #ffb6c1*/
+
 /*__________________________________________general attributes here*/
 * {
         box-sizing: border-box;
@@ -61,10 +63,20 @@ img{
 }
 ._holder {
     flex-basis: 25%;
+    padding: 2%;
+    border-bottom-width: 3px;
+    border-left: 5px solid white;
+    opacity: .6;
 }
-
-
-
+.infocard {
+    background-color: grey;
+    z-index: 1;
+    /*position: absolute;*/
+    display: flex;
+    align-self: stretch;
+    text-align: left;
+    border-top: 1px solid black;
+}
 
 .smalllegend_k12,.smalllegend_github{
     font-family: 'IBM Plex Serif';
@@ -89,9 +101,29 @@ img{
     box-sizing: border-box;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap-reverse;
     align-content: center;
     /*justify-content: flex-start;*/
+}
+#viz2{
+    background-color: snow;
+    
+}
+#viz2_1 {
+    flex-basis: 75%;
+}
+#viz2_2{
+    flex-basis: 25%;
+    border: 20px solid snow;
+    background-color: #ffb6c1;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+svg.dotsViz{
+    border: 1px dashed lightpink;
+    border-top-color: white;
 }
 
 
@@ -108,7 +140,19 @@ img{
     color:#5b2e90;
     margin-bottom: 60px;
 }
-
+.nodelabel{
+    fill: black;
+    z-index: 1;
+    font-size: 8px;
+    text-anchor: middle;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.circleThemes{
+    z-index: 0;
+    stroke: snow;
+    stroke-width: 2px;
+}
 h1,h2,h3,h4,h5,h6{
     color: #5b2e90;
     font-weight: 700;
@@ -124,10 +168,18 @@ h1,h2,h3,h4,h5,h6{
     border-bottom: 3px solid #5ecee5;
 }
 .BigNumber {
-    font-size: 60px;
-    line-height: 56px;
+    font-size: 42px;
+    line-height: 38px;
     font-weight: 300;
-    opacity: .6;
+    color: white;
+}
+.detalhe{
+    border-top: 1px solid black;
+    padding-top: 3%;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
 }
 
 /*__________________________________________graphical attributes*/

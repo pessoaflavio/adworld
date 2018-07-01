@@ -1,5 +1,3 @@
-// cores #f16664 #ff7c8d #ff99b1 #ffb6c1
-
 //dando oi para o navegador - hi to our browser
 console.log('hi dere');
 
@@ -14,19 +12,18 @@ var data = [
     {tipo: 'Relacionamento com cliente', abs: 74, per: 2}, 
     {tipo: 'Dinâmica da agência', abs: 156, per: 4}];
 
+
 //carregando tabela - loading table
 
-console.log(data);
+    console.log(data);
     
 //carregar 2o infografico - loading our 2nd viz
 
 var svg = d3
-.select('#viz2_1')
+.select('#viz2')
 .append('svg')
-.attr('class', 'secondViz')
-.attr('width', '75%')
-.attr('height', '450px')
-.style('background-color','snow')
+.attr('width', '100%')
+.attr('height', '650px')
 .call(responsivefy)
 ;
 
@@ -39,35 +36,41 @@ var height = elementw.height;
 
 var simulation = d3.forceSimulation(data)
 .force('charge', d3.forceManyBody().strength(5))
-.force('center', d3.forceCenter(width / 3, height / 2.75))
+.force('center', d3.forceCenter(width / 3, height / 2))
 .force('collision', d3.forceCollide().radius(function(d) {
-    return d.abs/11;
+    return d.abs/8;
     }))
 .on('tick', ticked)
 ;
 
-
+var nodelabels = svg.selectAll(".nodelabel") 
+   .data(data)
+   .enter()
+   .append("text")
+   .text(function(d){return d.tipo;})
+   .attr('x', function(d){return d.x;})
+   .attr('y', function(d){return d.y;})
+   .attr('class', 'nodelabel')
+   .attr('fill', 'black')
+   .attr('font-size', '12px')
+   .attr('text-anchor', 'middle')
+    ;   
 
 function ticked() {
-
-    var u = d3.select('#viz2_1')
+    var u = d3.select('#viz2')
     .select('svg')
+    .attr('class', 'secondViz')
     .selectAll('circle')
-    .data(data)
-    ;
-    
-    var t = d3.select('#viz2_1')
-    .select('svg')
-    .selectAll('text.nodelabel')
     .data(data)
     ;
     
     u.enter()
     .append('circle')
-    .attr('fill','#ffb6c1')
-    .attr('class', 'circleThemes')
-    .attr('id', function(d){return d.abs})
-    .attr('r', function(d) {return d.abs/10;})
+    .attr('fill','pink')
+    .attr('opacity', .5)
+    .attr('class', 'tipos')
+    .attr('id', function(d){return d.tipo})
+    .attr('r', function(d) {return d.abs/7;})
     .on('mouseover', m_on)
     .on('mouseout', m_out)
     .merge(u)
@@ -76,16 +79,13 @@ function ticked() {
     ;
     
     u.exit().remove();
-
-    t.enter()
-    .append('text')
-    .text(function(d){return d.tipo})
-    .attr('class', 'nodelabel')
-    .attr('text-anchor', 'middle')
-    .merge(t)
-    .attr('x', function(d){return d.x;})
-    .attr('y', function(d){return d.y;})
-    ;
+  
+      // console.log('wat');
+    d3.select('#viz2')
+    .select('svg')
+    .selectAll('.nodelabel')
+    .attr("x", function(d) { return d.x; }) 
+    .attr("y", function(d) { return d.y; });
 
 }
 
@@ -101,16 +101,15 @@ function m_on(){
     var thisId = This.attr('id');
     var thisX = This.attr('cx');
     var thisY = This.attr('cy');
-    var thisCl = This.attr('class');
     
     console.log(thisId);
     
-    d3.select('#viz2_2')
-    .append('div')
-    .attr('class','infocard')
-    .html('<span class=BigNumber>' + thisId + '</span><br>MENÇÕES')
-    .attr('width', width)
-    .attr('height', height)
+    d3.select('#viz2')
+    .append('text')
+    .text(thisId)
+    .attr('font-size', '12px')
+    .attr('x', 2.4*(width / 3))
+    .attr('y', thisY)
     ;
 }
 
