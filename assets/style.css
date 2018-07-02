@@ -68,6 +68,23 @@ img{
     border-left: 5px solid white;
     opacity: .6;
 }
+.example{
+    font-size: 13px;
+    margin-top: 30px;
+    color: #5b2e90;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px #5b2e90 solid; 
+}
+.bigexample{
+    font-size: 21px;
+    line-height: 23px;
+    font-weight: 300;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+}
 .infocard {
     background-color: grey;
     z-index: 1;
@@ -76,6 +93,9 @@ img{
     align-self: stretch;
     text-align: left;
     border-top: 1px solid black;
+}
+.subcats{
+    margin-bottom: 60px;
 }
 
 .smalllegend_k12,.smalllegend_github{
@@ -96,8 +116,8 @@ img{
 #viz0,#viz1,#viz2,#viz3,#viz4 {
     display: flex;
     width: 100%;
-    height: auto;
-    overflow: auto;
+    /*height: auto;*/
+    /*overflow: auto;*/
     box-sizing: border-box;
     flex-direction: row;
     justify-content: center;
@@ -106,21 +126,15 @@ img{
 }
 #viz2{
     background-color: snow;
-    
 }
-#viz2_1 {
-    flex-basis: 75%;
-}
-#viz2_2{
-    flex-basis: 25%;
-    border: 20px solid snow;
-    background-color: #ffb6c1;
+.firstCont, .secCont{
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-basis: 25%;
 }
-
+.thirdCont{
+    display: flex;
+    flex-basis: 50%;
+}
 svg.dotsViz{
     border: 1px dashed lightpink;
     border-top-color: white;
@@ -128,7 +142,20 @@ svg.dotsViz{
 
 
 /*__________________________________________header attributes here*/
-
+  .countries {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+  }
+  .legendThreshold {
+      font-size: 12px;
+      font-family: 'Open Sans';
+  }
+  .caption {
+      fill: #000;
+      text-anchor: start;
+      font-weight: bold;
+  }
 
 
 
@@ -143,16 +170,17 @@ svg.dotsViz{
 .nodelabel{
     fill: black;
     z-index: 1;
-    font-size: 8px;
+    font-size: 14px;
     text-anchor: middle;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.circleThemes{
-    z-index: 0;
-    stroke: snow;
-    stroke-width: 2px;
-}
+/*.circleThemes{*/
+    /*z-index: 0;*/
+/*    stroke: snow;*/
+/*    stroke-width: 2px;*/
+/*    opacity: 0.5;*/
+/*}*/
 h1,h2,h3,h4,h5,h6{
     color: #5b2e90;
     font-weight: 700;
@@ -183,19 +211,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /*__________________________________________graphical attributes*/
-.tracer {
-    position: absolute;
-    border-top: 1px dashed black;
-    border-left: 1px dashed black;
-}
-.step{
-    text-align: center;
-    font-weight: 700;
-}
-.btnholder{
-    /*background-color: white;*/
-    /*display: block;*/
-}
 button{
     font-family: 'Open Sans';
     font-weight: bold;
@@ -212,17 +227,4 @@ button{
 button:hover, button:active, button:on{
     background-color: black;
     box-shadow: 0px 0px 0px lightgrey;
-}
-.connector,.connector2{
-    box-sizing: content-box;
-    position: absolute;
-    visibility: visible;
-    border-top: 3px solid black;
-    z-index: 1;
-}
-.connector{
-    border-right: 3px solid black;
-}
-.connector2{
-    border-left: 3px solid black;
 }

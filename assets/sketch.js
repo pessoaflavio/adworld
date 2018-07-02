@@ -13,30 +13,83 @@ var svg = d3
 .select('#viz1')
 .append('svg')
 .attr('width', '100%')
-.attr('height', '650px')
+.attr('height', '550px')
 .call(responsivefy)
 ;
 
 var elementw = svg.node().getBoundingClientRect();
 
 console.log(elementw.width);
+var width = elementw.width;
+var height = elementw.height;
+
+var spacer = width/8;
+
 
 svg
-.append('circle')
-.attr('fill','purple')
-.attr('r', function(){return (elementw.width/1.5)*(Math.sqrt(Math.PI/71))})
-.attr('cx', function(){return 2*(elementw.width/3)})
-.attr('cy', '325')
-.attr('opacity', .5)
+.append('text')
+.text('71%')
+.attr('x', function(){return 3*spacer})
+.attr('y', height/2)
+.attr('text-anchor','middle')
+.attr('fill', 'black')
+.attr('font-size', spacer/2.5)
+.attr('transform', 'translate(0,' + spacer/4.8 + ')')
+.style('font-weight','300')
+;
+
+svg
+.append('text')
+.text('de respostas negativas')
+.attr('x', function(){return 3*spacer})
+.attr('y', height/2)
+.attr('text-anchor','middle')
+.attr('fill', 'black')
+.attr('font-size', spacer/12)
+.attr('transform', 'translate(0,' + spacer/3 + ')')
+.style('font-weight','300')
+;
+
+svg
+.append('text')
+.text('29%')
+.attr('x', function(){return 5*spacer})
+.attr('y', height/2)
+.attr('text-anchor','middle')
+.attr('fill', 'black')
+.attr('font-size', spacer/2.5)
+.attr('transform', 'translate(0,' + spacer/4.8 + ')')
+.style('font-weight','300')
+;
+
+svg
+.append('text')
+.text('de respostas positivas')
+.attr('x', function(){return 5*spacer})
+.attr('y', height/2)
+.attr('text-anchor','middle')
+.attr('fill', 'black')
+.attr('font-size', spacer/12)
+.attr('transform', 'translate(0,' + spacer/3 + ')')
+.style('font-weight','300')
 ;
 
 svg
 .append('circle')
-.attr('fill','pink')
-.attr('r', function(){return (elementw.width/1.5)*(Math.sqrt(Math.PI/29))})
-.attr('cx', function(){return elementw.width/3})
-.attr('cy', '325')
-.attr('opacity', .5)
+.attr('fill','#ffb6c1')
+.attr('r', function(){return (width/25)*(Math.sqrt(71/Math.PI))})
+.attr('cx', function(){return 3*spacer})
+.attr('cy', height/2)
+.style('mix-blend-mode', 'multiply')
+;
+
+svg
+.append('circle')
+.attr('fill','#5b2e90')
+.attr('r', function(){return (width/25)*(Math.sqrt(29/Math.PI))})
+.attr('cx', function(){return 5*spacer})
+.attr('cy', height/2)
+.style('mix-blend-mode', 'multiply')
 ;
 
 

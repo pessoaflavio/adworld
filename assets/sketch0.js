@@ -1,37 +1,175 @@
+// The svg
 var svg = d3
-.select('#viz0')
-.append('svg')
-.attr('width', '100%')
-.attr('height', '150px')
-.call(responsivefy)
-;
+    .select('#viz0')
+    .append('svg')
+    .attr('width', '100%')
+    .attr('height', '600px')
+    .call(responsivefy)
+    ;
 
-var elementw = svg.node().getBoundingClientRect();
+var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
+var elementw = d3
+    .select('#viz0')
+    .select('svg')
+    .node().getBoundingClientRect();
+    
 console.log(elementw.width);
 console.log(elementw.height);
 
 var width = elementw.width;
 var height = elementw.height;
 
-var tr = [width / 1.2, height / 3.8];
-var scale = [width * .67];
+var spacer = width/10;
 
-console.log(tr);
+// Map and projection
+// var path = d3.geoPath();
+var projection = d3.geoMercator()   
+    // .scale(300 / Math.PI)
+    // .translate([300, 225])
+    .scale(5*spacer)
+    .translate([10*spacer, height-5*(height/6)])
+    ;
+var path = d3.geoPath()
+    .projection(projection);
 
-var map = d3.geomap.choropleth()
-    .geofile('data/BRA.json')
-    // .projection(d3.geo.albersUsa)
-    .column('total')
-    .unitId('fips')
-    .scale(scale)
-    .translate(tr)
-    .legend(true);
+// Data and color scale
+var dados = d3.map();
+var colorScheme = d3.schemeRdPu[6];
+colorScheme.unshift("#eee");
+var colorScale = d3.scaleThreshold()
+    .domain([1, 25, 50, 100, 200, 800])
+    .range(colorScheme);
 
-d3.csv('data/mapabr.csv', function(error, data) {
-    d3.select('#viz0')
-        .datum(data)
-        .call(map.draw, map);
-});
+// Legend
+var g = svg.append("g")
+    .attr("class", "legendThreshold")
+    .attr("transform", "translate(" + 2*spacer + "," + spacer/2.2 + ")")
+    .attr('z-index',1)
+    ;
+g.append("text")
+    .attr("class", "caption")
+    .attr("x", 0)
+    .attr("y", -6)
+    .text("Número de agências citadas");
+var labels = ['0', '1-25', '26-50', '51-100', '101-200', '201-800', '> 800'];
+var legend = d3.legendColor()
+    .labels(function (d) { return labels[d.i]; })
+    .shapePadding(4)
+    .scale(colorScale)
+    ;
+svg.select(".legendThreshold")
+    .call(legend);
+
+// Load external data and boot
+d3.queue()
+    .defer(d3.json, "data/BRA2.json")
+    .defer(d3.csv, "data/mapabr.csv", function(d) { dados.set(d.fips, +d.total); })
+    .await(ready);
+    
+function ready(error, topo) {
+    if (error) throw error;
+    
+    // console.log(topo.objects.units.geometries);
+    console.log(topo.features);
+    
+    // Draw the map
+    d3
+    .select('#viz0')
+    .select('svg')
+    .append("g")
+        .attr("class", "countries")
+        .selectAll("path")
+        .data(topo.features)
+        .enter().append("path")
+            .attr("fill", function (d){
+                // Pull data for this country
+                d.total = dados.get(d.id) || 0;
+                // Set the color
+                // console.log(dados.get(d.id));
+                return colorScale(d.total);
+            })
+            .attr("d", path)
+            .on('mouseover', m_on)
+            // .on('mouseout', m_out)
+            ;
+            
+        function m_on(d){
+            
+            d3
+            .select('#viz0')
+            .select('svg')
+            .select('g.valor1')
+            .remove()
+            .transition(t)
+            ;
+            
+            var This = d3.select(this);
+            var ThisData = This._groups["0"]["0"].__data__;
+            
+            console.log(ThisData);
+            console.log(ThisData);
+            
+            var gDash = d3
+            .select('#viz0')
+            .select('svg')
+            .append('g')
+            .attr('class', 'valor1')
+            .attr('z-index',0)
+            ;
+            
+            gDash
+            .append('circle')
+            .transition(t)
+            .attr('cx', 2*spacer)
+            .attr('cy', 400)
+            .attr('r', function(d,i){return 10*(Math.sqrt(ThisData.total/Math.PI))})
+            .attr('fill', '#ffb6c1')
+            // .attr('opacity', .2 )
+            ;
+            
+            gDash
+            .append('text')
+            .attr('x', 2*spacer)
+            .attr('y', 400)
+            .text(function(d){return ThisData.properties.name})
+            .attr('fill', 'black')
+            .attr('opacity', 1 )
+            .attr('text-anchor','middle')
+            .style('text-transform','uppercase')
+            .style('font-size','12px')
+            .style('font-weight',700)
+            ;
+            
+             gDash
+            .append('text')
+            .attr('x', 2*spacer)
+            .attr('y', 430)
+            .text(function(d){return ThisData.total})
+            .attr('fill', 'black')
+            .attr('opacity', 1 )
+            .attr('text-anchor','middle')
+            .style('text-transform','uppercase')
+            .style('font-size','24px')
+            // .style('font-weight',700)
+            ;
+            
+        }
+        
+        function m_out(d){
+            
+            d3
+            .select('#viz0')
+            .select('svg')
+            .select('g.valor1')
+            .remove()
+            .transition(t)
+            ;
+            
+        }
+}
 
 
 function responsivefy(svg) {

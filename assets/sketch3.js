@@ -1,13 +1,18 @@
 //dando oi para o navegador - hi to our browser
 console.log('hi dere');
 
+var t = d3.transition()
+    .duration(25)
+    // .ease(d3.easeLinear)
+    ;
+
 //carregando tabela - loading table
 
 d3.csv('data/DadosSubCategorias.csv', function(error, data)
     {
     if (error) throw error;
     
-    console.log(data);
+    // console.log(data);
     
     var div1 = d3
     .select('#subcat_holder')
@@ -16,13 +21,21 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     .enter()
     .append('div')
     .attr('class', 'subcats')
-    .attr('id', function(d){return 'subcat_' + d.cat})
+    .attr('id', function(d,i){return 'subcat_' + d.cat[0] + i})
     .html(function(d){return '<h3>' + d.cat + '</h3>'})
     ;
     
     div1
     .append('p')
     .text(function(d){return d.desc})
+    ;
+    
+    div1
+    .append('div')
+    .attr('class','example')
+    .attr('id', function(d,i){return 'Exemplo_' + d.cat[0] + i})
+    // .append('html')
+    .html('O que foi dito:<br>')
     ;
     
     var valueHolder = div1
@@ -33,36 +46,261 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     valueHolder
     .append('div')
     .attr('class','_holder')
+    .attr('id','gpholder')
     .style('background-color', '#f16664')
     .style('border-left', 'none')
     .html(function(d){return '<small>Grand Prix</small><br><span class="BigNumber">' + d.gp_valor + '%</span><br><p class="detalhe">' + d.gp_nome + '</p>'})
+    .on('mouseenter', mouseON1)
+    .on('mouseleave', mouseOut1)
     ;
+    
+    function mouseON1(d,i){
+    d3
+    .select('body')
+    .select('#gpholder')
+    // .transition(t)
+    .style('opacity',1)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.gp')
+    // .transition(t)
+    .attr('opacity',1)
+    .attr('stroke','black')
+    ;
+    
+    d3
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#Exemplo_' + d.cat[0] + i)
+    .append('text')
+    .attr('class','bigexample')
+    .text(d.gp_cit1)
+    ;
+    }
+    function mouseOut1(d,i){
+
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#gpholder')
+    // .transition(t)
+    .style('opacity',.6)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.gp')
+    // .transition(t)
+    .attr('opacity',.6)
+    .attr('stroke','none')
+    ;
+    
+   d3
+    .select('#subcat_' + d.cat[0] + i)
+    .select('#Exemplo_' + d.cat[0] + i)
+    .selectAll('.bigexample')
+    .remove()
+    ;
+    
+    }
     
     valueHolder
     .append('div')
     .attr('class','_holder')
+    .attr('id','ouroholder')
     .style('background-color', '#f98646')
     .html(function(d){return '<small>Ouro</small><br><span class="BigNumber">' + d.o_valor + '%</span><br><p class="detalhe">' + d.o_nome + '</p>'})
+    .on('mouseenter', mouseON2)
+    .on('mouseleave', mouseOut2)
     ;
+    
+    function mouseON2(d,i){
+    d3
+    .select('body')
+    .select('#ouroholder')
+    // .transition(t)
+    .style('opacity',1)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.ouro')
+    // .transition(t)
+    .attr('opacity',1)
+    .attr('stroke','black')
+    ;
+    
+    d3
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#Exemplo_' + d.cat[0] + i)
+    .append('text')
+    .attr('class','bigexample')
+    .text(d.o_cit1)
+    ;
+    }
+    function mouseOut2(d,i){
+
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#ouroholder')
+    // .transition(t)
+    .style('opacity',.6)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.ouro')
+    // .transition(t)
+    .attr('opacity',.6)
+    .attr('stroke','none')
+    ;
+    
+    d3
+    .select('#subcat_' + d.cat[0] + i)
+    .select('#Exemplo_' + d.cat[0] + i)
+    .selectAll('.bigexample')
+    .remove()
+    ;
+    
+}
     
     valueHolder
     .append('div')
     .attr('class','_holder')
+    .attr('id','prataholder')
     .style('background-color', '#ff99b1')
     .html(function(d){return '<small>Prata</small><br><span class="BigNumber">' + d.p_valor + '%</span><br><p class="detalhe">' + d.p_nome + '</p>'})
+    .on('mouseenter', mouseON3)
+    .on('mouseleave', mouseOut3)
     ;
     
+    function mouseON3(d,i){
+    d3
+    .select('body')
+    .select('#prataholder')
+    // .transition(t)
+    .style('opacity',1)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.prata')
+    // .transition(t)
+    .attr('opacity',1)
+    .attr('stroke','black')
+    ;
+    
+    d3
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#Exemplo_' + d.cat[0] + i)
+    .append('text')
+    .attr('class','bigexample')
+    .text(d.p_cit1)
+    ;
+    }
+    function mouseOut3(d,i){
+
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#prataholder')
+    // .transition(t)
+    .style('opacity',.6)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.prata')
+    // .transition(t)
+    .attr('opacity',.6)
+    .attr('stroke','none')
+    ;
+    
+   d3
+    .select('#subcat_' + d.cat[0] + i)
+    .select('#Exemplo_' + d.cat[0] + i)
+    .selectAll('.bigexample')
+    .remove()
+    ;
+    
+    }
+
     valueHolder
     .append('div')
     .attr('class','_holder')
+    .attr('id','bronzeholder')
     .style('background-color', '#ffb6c1')
     .html(function(d){return '<small>Bronze</small><br><span class="BigNumber">' + d.b_valor + '%</span><br><p class="detalhe">' + d.b_nome + '</p>'})
+    .on('mouseenter', mouseON4)
+    .on('mouseleave', mouseOut4)
     ;
+    
+    function mouseON4(d,i){
+    d3
+    .select('body')
+    .select('#bronzeholder')
+    // .transition(t)
+    .style('opacity',1)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.bronze')
+    // .transition(t)
+    .attr('opacity',1)
+    .attr('stroke','black')
+    ;
+    
+    d3
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#Exemplo_' + d.cat[0] + i)
+    .append('text')
+    .attr('class','bigexample')
+    .text(d.b_cit1)
+    ;
+    }
+    
+    function mouseOut4(d,i){
+
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('#bronzeholder')
+    // .transition(t)
+    .style('opacity',.6)
+    ;
+    
+    d3
+    .select('body')
+    .select('#subcat_' + d.cat[0] + i)
+    .selectAll('circle.bronze')
+    // .transition(t)
+    .attr('opacity',.6)
+    .attr('stroke','none')
+    ;
+    
+    d3
+    .select('#subcat_' + d.cat[0] + i)
+    .select('#Exemplo_' + d.cat[0] + i)
+    .selectAll('.bigexample')
+    .remove()
+    ;
+    
+}
     
     var svg = div1
     .append('svg')
     .attr('width', '100%')
-    .attr('id', function(d){return 'dots_' + d.cat})
+    .attr('id', function(d,i){return 'dots_' + d.cat[0] + i})
     .attr('class', 'dotsViz')
     .attr('height', '650px')
     ;
@@ -116,59 +354,66 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
             .data(list)
             .enter()
             .append('circle')
-            .attr('id', function(d,i){return '_' + i + '_' + d.cat})
-            .attr('cx', function(d,i){
-                if (i>=0 && i<40)
-                return (i*wstep)+(wstep);
-                else if (i>=40 && i<80)
-                return ((i-40)*wstep)+(wstep);
-                else if (i>=80 && i<120)
-                return ((i-80)*wstep)+(wstep);
-                else if (i>=120 && i<160)
-                return ((i-120)*wstep)+(wstep);
-                else if (i>=160 && i<200)
-                return ((i-160)*wstep)+(wstep);
-                else if (i>=200 && i<240)
-                return ((i-200)*wstep)+(wstep);
-                else if (i>=240 && i<280)
-                return ((i-240)*wstep)+(wstep);
-                else if (i>=280 && i<320)
-                return ((i-280)*wstep)+(wstep);
-                else if (i>=320 && i<360)
-                return ((i-320)*wstep)+(wstep);
-                else if (i>=360 && i<400)
-                return ((i-360)*wstep)+(wstep);
-                else if (i>=400 && i<440)
-                return ((i-400)*wstep)+(wstep);
-                else if (i>=440 && i<480)
-                return ((i-440)*wstep)+(wstep);
-                else if (i>=480 && i<520)
-                return ((i-480)*wstep)+(wstep);
-                else if (i>=520 && i<560)
-                return ((i-520)*wstep)+(wstep);
-                else if (i>=560 && i<600)
-                return ((i-560)*wstep)+(wstep);
-                else if (i>=600 && i<640)
-                return ((i-600)*wstep)+(wstep);
-                else if (i>=640 && i<680)
-                return ((i-640)*wstep)+(wstep);
-                else if (i>=680 && i<720)
-                return ((i-680)*wstep)+(wstep);
-                else if (i>=720 && i<760)
-                return ((i-720)*wstep)+(wstep);
+            .attr('id', function(datum,j){return '_' + j + '_' + datum.cat})
+            .attr('cx', function(datum,j){
+                if (j>=0 && j<40)
+                return (j*wstep)+(wstep);
+                else if (j>=40 && j<80)
+                return ((j-40)*wstep)+(wstep);
+                else if (j>=80 && j<120)
+                return ((j-80)*wstep)+(wstep);
+                else if (j>=120 && j<160)
+                return ((j-120)*wstep)+(wstep);
+                else if (j>=160 && j<200)
+                return ((j-160)*wstep)+(wstep);
+                else if (j>=200 && j<240)
+                return ((j-200)*wstep)+(wstep);
+                else if (j>=240 && j<280)
+                return ((j-240)*wstep)+(wstep);
+                else if (j>=280 && j<320)
+                return ((j-280)*wstep)+(wstep);
+                else if (j>=320 && j<360)
+                return ((j-320)*wstep)+(wstep);
+                else if (j>=360 && j<400)
+                return ((j-360)*wstep)+(wstep);
+                else if (j>=400 && j<440)
+                return ((j-400)*wstep)+(wstep);
+                else if (j>=440 && j<480)
+                return ((j-440)*wstep)+(wstep);
+                else if (j>=480 && j<520)
+                return ((j-480)*wstep)+(wstep);
+                else if (j>=520 && j<560)
+                return ((j-520)*wstep)+(wstep);
+                else if (j>=560 && j<600)
+                return ((j-560)*wstep)+(wstep);
+                else if (j>=600 && j<640)
+                return ((j-600)*wstep)+(wstep);
+                else if (j>=640 && j<680)
+                return ((j-640)*wstep)+(wstep);
+                else if (j>=680 && j<720)
+                return ((j-680)*wstep)+(wstep);
+                else if (j>=720 && j<760)
+                return ((j-720)*wstep)+(wstep);
                 
             })
-            .attr('cy', function(d,i){return hstep+(Math.floor(i/40)*wstep)})
+            .attr('cy', function(datum,j){return hstep+(Math.floor(j/40)*wstep)})
             .attr('r', '6')
-            .attr('fill', function(d,i){
-                if (i < Number(d.gpValor)) return '#f16664';
-                else if (i < (Number(d.gpValor) + Number(d.oValor)) && i >= Number(d.gpValor) ) return '#f98646';  
-                else if (i < (Number(d.gpValor) + Number(d.oValor) + Number(d.pValor)) && i >= (Number(d.gpValor) + Number(d.oValor))) return '#ff99b1';
-                else if (i < (Number(d.gpValor) + Number(d.oValor) + Number(d.pValor) + Number(d.bValor)) && i >= (Number(d.gpValor) + Number(d.oValor) + Number(d.pValor))) return '#ffb6c1';
+            .attr('fill', function(datum,j){
+                if (j < Number(datum.gpValor)) return '#f16664';
+                else if (j < (Number(datum.gpValor) + Number(datum.oValor)) && j >= Number(datum.gpValor) ) return '#f98646';  
+                else if (j < (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor)) && j >= (Number(datum.gpValor) + Number(datum.oValor))) return '#ff99b1';
+                else if (j < (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor) + Number(datum.bValor)) && j >= (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor))) return '#ffb6c1';
                 else return 'white';
             })
-            .attr('stroke', function(d,i){
-                if (i < (Number(d.gpValor) + Number(d.oValor) + Number(d.pValor) + Number(d.bValor))) return 'white';
+            .attr('class', function(datum,j){
+                if (j < Number(datum.gpValor)) return 'gp';
+                else if (j < (Number(datum.gpValor) + Number(datum.oValor)) && j >= Number(datum.gpValor) ) return 'ouro';  
+                else if (j < (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor)) && j >= (Number(datum.gpValor) + Number(datum.oValor))) return 'prata';
+                else if (j < (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor) + Number(datum.bValor)) && j >= (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor))) return 'bronze';
+                else return 'white';
+            })
+            .attr('stroke', function(datum,j){
+                if (j < (Number(datum.gpValor) + Number(datum.oValor) + Number(datum.pValor) + Number(datum.bValor))) return 'white';
                 else return 'lightpink';
             })
             .attr('opacity',0.6)
