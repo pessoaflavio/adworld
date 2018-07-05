@@ -126,6 +126,7 @@ background: linear-gradient(0deg, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 10
     flex-basis: 40%;
     margin-right: 10px;
     border-right: 1px solid black;
+    color: #5b2e90;
 }
 .top1{
     display: flex;

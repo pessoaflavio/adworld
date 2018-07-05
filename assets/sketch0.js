@@ -3,7 +3,7 @@ var svg = d3
     .select('#viz0')
     .append('svg')
     .attr('width', '100%')
-    .attr('height', '600px')
+    .attr('height', '500px')
     .call(responsivefy)
     ;
 
@@ -108,9 +108,9 @@ function ready(error, topo) {
             
             var This = d3.select(this);
             var ThisData = This._groups["0"]["0"].__data__;
-            
+            var thisFill = This._groups["0"]["0"].attributes["0"].nodeValue;
             console.log(ThisData);
-            console.log(ThisData);
+            console.log(This._groups["0"]["0"].attributes["0"].nodeValue);
             
             var gDash = d3
             .select('#viz0')
@@ -124,16 +124,17 @@ function ready(error, topo) {
             .append('circle')
             .transition(t)
             .attr('cx', 2*spacer)
-            .attr('cy', 400)
-            .attr('r', function(d,i){return 10*(Math.sqrt(ThisData.total/Math.PI))})
-            .attr('fill', '#ffb6c1')
+            .attr('cy', 350)
+            .attr('r', function(d,i){return 8*(Math.sqrt(ThisData.total/Math.PI))})
+            .attr('fill', thisFill)
+            .attr('stroke', '#5b2e90')
             // .attr('opacity', .2 )
             ;
             
             gDash
             .append('text')
             .attr('x', 2*spacer)
-            .attr('y', 400)
+            .attr('y', 350)
             .text(function(d){return ThisData.properties.name})
             .attr('fill', 'black')
             .attr('opacity', 1 )
@@ -146,13 +147,13 @@ function ready(error, topo) {
              gDash
             .append('text')
             .attr('x', 2*spacer)
-            .attr('y', 430)
+            .attr('y', 390)
             .text(function(d){return ThisData.total})
             .attr('fill', 'black')
             .attr('opacity', 1 )
             .attr('text-anchor','middle')
             .style('text-transform','uppercase')
-            .style('font-size','24px')
+            .style('font-size','36px')
             // .style('font-weight',700)
             ;
             

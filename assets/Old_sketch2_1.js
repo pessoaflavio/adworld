@@ -42,7 +42,7 @@ var spacerH = height/4;
 
 var simulation = d3.forceSimulation(data)
 .force('charge', d3.forceManyBody().strength(5))
-.force('center', d3.forceCenter(2*spacerH, height / 2 ))
+.force('center', d3.forceCenter(4*spacerH, height / 2 ))
 .force('collision', d3.forceCollide().radius(function(d) {
     return d.abs/10;
     }))
@@ -145,49 +145,42 @@ function m_on(){
     t
     .append('text')
     .text(thisId)
-    .attr('class','BigNumber')
+    .attr('font-size','60px')
+    .style('font-weight','300')
     .attr('x', function(){ return 5*spacer})
-    .attr('y', function(){ return 1*spacerH} )
+    .attr('y', function(){ return 1.5*spacerH})
     ;
     
     t
     .append('text')
     .text('MENÇÕES')
     .attr('x', function(){ return 5*spacer})
-    .attr('y', function(){ return 1.2*spacerH} )
+    .attr('y', function(){ return 1.7*spacerH})
     ;
     
     t
     .append('line')
     .attr('x1',function(){ return 5*spacer})
-    .attr('y1', function(){ return 1.4*spacerH})
+    .attr('y1', function(){ return 2*spacerH})
     .attr('x2',function(){ return 6.5*spacer})
-    .attr('y2', function(){ return 1.4*spacerH})
+    .attr('y2', function(){ return 2*spacerH})
     .attr('stroke','black')
     ;
     
     t
     .append('text')
     .text(thisCl + '%')
-    .attr('class','BigNumber')
+    .attr('font-size','60px')
+    .style('font-weight','300')
     .attr('x', function(){ return 5*spacer})
-    .attr('y', function(){ return 1.8*spacerH} )
+    .attr('y', function(){ return 2.7*spacerH} )
     ;
     
     t
     .append('text')
     .text('DO TOTAL')
     .attr('x', function(){ return 5*spacer})
-    .attr('y', function(){ return 2*spacerH} )
-    ;
-    
-    t
-    .append('line')
-    .attr('x1',function(){ return 5*spacer})
-    .attr('y1', function(){ return 2.2*spacerH})
-    .attr('x2',function(){ return 6.5*spacer})
-    .attr('y2', function(){ return 2.2*spacerH})
-    .attr('stroke','black')
+    .attr('y', function(){ return 2.9*spacerH} )
     ;
     
 }
@@ -210,61 +203,6 @@ function m_out(){
 
 }
 
-// function m_on(){
-//     var This = d3.select(this);
-    
-//     This
-//     .attr('stroke', '#f16664')
-//     .attr('opacity', 1)
-//     ;
-    
-//     var thisId = This.attr('id');
-//     var thisX = This.attr('cx');
-//     var thisY = This.attr('cy');
-//     var thisCl = This.attr('class');
-//     var thisName = This.attr('nome');
-    
-//     console.log('#' + thisName + '_Label');
-    
-//     d3
-//     .select('#' + thisName + '_Label')
-//     .style('font-weight', 700)
-//     ;
-    
-//     d3.select('#viz2_2')
-//     .append('div')
-//     .attr('class','infocard')
-//     .html('<div class="firstCont"><span class="BigNumber">' + thisId + '</span><br>MENÇÕES</div><div class="secCont>' +  + '</div>')
-//     ;
-// }
-
-// function m_out(){
-    
-//     var This = d3.select(this);
-
-//     This
-//     .attr('stroke', 'none')
-//     .attr('opacity', 0.5)
-//     ;
-    
-//     var thisId = This.attr('id');
-//     var thisX = This.attr('cx');
-//     var thisY = This.attr('cy');
-//     var thisCl = This.attr('class');
-//     var thisName = This.attr('nome');
-    
-//     d3
-//     .select('#' + thisName + '_Label')
-//     .style('font-weight', 500)
-//     ;
-    
-//     d3.select('#viz2_2 .infocard')
-//     .remove('div.infocard')
-//     // .attr('class','infocard')
-//     // .html('<div class="firstCont"><span class="BigNumber">' + thisId + '</span><br>MENÇÕES</div><div class="secCont>' +  + '</div>')
-//     ;
-
-// }
 
 // desenhar o gráfico de maneira responsiva / responsive redrawing of our viz
 function responsivefy(svg) {
