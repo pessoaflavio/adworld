@@ -26,7 +26,13 @@ var height = elementw.height;
 var spacer = width/8;
 
 
+var g =
 svg
+.append('g')
+.style('isolation', 'isolate')
+;
+
+g
 .append('text')
 .text('71%')
 .attr('x', function(){return 3*spacer})
@@ -38,7 +44,7 @@ svg
 .style('font-weight','300')
 ;
 
-svg
+g
 .append('text')
 .text('de respostas negativas')
 .attr('x', function(){return 3*spacer})
@@ -50,7 +56,7 @@ svg
 .style('font-weight','300')
 ;
 
-svg
+g
 .append('text')
 .text('29%')
 .attr('x', function(){return 5*spacer})
@@ -62,7 +68,7 @@ svg
 .style('font-weight','300')
 ;
 
-svg
+g
 .append('text')
 .text('de respostas positivas')
 .attr('x', function(){return 5*spacer})
@@ -74,18 +80,18 @@ svg
 .style('font-weight','300')
 ;
 
-svg
+g
 .append('circle')
-.attr('fill','#ffb6c1')
+.attr('fill','#f16664')
 .attr('r', function(){return (width/25)*(Math.sqrt(71/Math.PI))})
 .attr('cx', function(){return 3*spacer})
 .attr('cy', height/2)
 .style('mix-blend-mode', 'multiply')
 ;
 
-svg
+g
 .append('circle')
-.attr('fill','#5b2e90')
+.attr('fill','#30cf8c')
 .attr('r', function(){return (width/25)*(Math.sqrt(29/Math.PI))})
 .attr('cx', function(){return 5*spacer})
 .attr('cy', height/2)

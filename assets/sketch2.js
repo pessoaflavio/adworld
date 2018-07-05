@@ -97,9 +97,8 @@ function m_on(){
     var This = d3.select(this);
     
     This
-    .attr('stroke', '#f16664')
+    .attr('stroke', 'black')
     .attr('stroke-width', 4)
-    // .attr('opacity', 1)
     ;
     
     var thisId = This.attr('id');

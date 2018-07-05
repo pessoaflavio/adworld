@@ -1,15 +1,34 @@
-/*cores #f16664 #ff7c8d #ff99b1 #ffb6c1*/
+/*cores #5b2e90 #30cf8c #f16664 #ff7c8d #ff99b1 #ffb6c1*/
+/*d3dfda*/
 
 /*__________________________________________general attributes here*/
 * {
-        box-sizing: border-box;
+    box-sizing: border-box;
     }
 body {
     font-family: 'Open Sans';
     padding: 0px;
     margin: 0px;
+    color: black;
+}
+footer{
+    position: fixed;
+    background-color: black;
+    width: 100%;
 }
 
+header{
+    position: fixed;
+    background-color: #5b2e90;
+    width: 100%;
+    padding: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    height: 30px;
+}
 /*@media only screen and (min-width: 1200px) {*/
 /*    .vizcontainer{*/
         /*max-width: 1200px;*/
@@ -38,6 +57,55 @@ body {
     align-content: center;
     align-items: center;
 }
+.part{
+    box-sizing: border-box;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+#part0{
+   background: rgb(255,182,193);
+    background: -webkit-linear-gradient(rgba(255,182,193,1) 0%, rgba(180,173,204,1) 100%);
+    background: -moz-linear-gradient(rgba(255,182,193,1) 0%, rgba(180,173,204,1) 100%);
+    background: -o-linear-gradient(rgba(255,182,193,1) 0%, rgba(180,173,204,1) 100%);
+    background: linear-gradient(rgba(255,182,193,1) 0%, rgba(180,173,204,1) 100%);
+    color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+#part1{
+    /*background-color: #b4adcc;*/
+    background: rgb(180,173,204);
+    background: -webkit-linear-gradient(rgba(180,173,204,1) 0%, rgba(244,180,179,1) 100%);
+    background: -moz-linear-gradient(rgba(180,173,204,1) 0%, rgba(244,180,179,1) 100%);
+    background: -o-linear-gradient(rgba(180,173,204,1) 0%, rgba(244,180,179,1) 100%);
+    background: linear-gradient(rgba(180,173,204,1) 0%, rgba(244,180,179,1) 100%);
+}
+#part2{
+    /*background-color: #ffb6c1;*/
+    background: rgb(253,227,199);
+    background: linear-gradient(0deg, rgba(253,227,199,1) 0%, rgba(244,180,179,1) 100%);
+}
+#part3{
+    /*background-color: snow;*/
+    background: rgb(253,227,199);
+    background: linear-gradient(180deg, rgba(253,227,199,1) 0%, rgba(211,223,218,1) 100%);
+}
+#part4{
+    background: rgb(233,216,231);
+background: linear-gradient(0deg, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 100%);
+}
 .vizcontainer {
     display: flex;
     flex-direction: row;
@@ -50,22 +118,80 @@ body {
     padding-bottom: 30px;
     max-width: 1000px;
 }
+.titulo{
+    font-size: 80px;
+    line-height: 75px;
+    font-family: 'Merriweather';
+    font-weight: 900;
+    flex-basis: 40%;
+    margin-right: 10px;
+    border-right: 1px solid black;
+}
+.top1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80vw;
+    max-width: 1200px;
+}
+.final{
+    border-top: 1px solid black;
+    font-size: 12px;
+    line-height: 16px;
+    width: 80vw;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+}
+.snippets{
+    flex-basis: 25%;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.small_int{
+    flex-basis: 60%;
+    font-size: 15px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+.hugen{
+    position: absolute;
+    left: 100px;
+}
 
 img{
     width: 100%;
     height: auto;
+}
+svg{
+    max-width: 1300px;
+    max-height: 700px;
 }
 
 .valueHolder {
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: flex-end;
+}
+.descHolder {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
 }
 ._holder {
     flex-basis: 25%;
-    padding: 2%;
-    border-bottom-width: 3px;
-    border-left: 5px solid white;
+    padding: 1%;
+    /*border-bottom-width: 3px;*/
+    /*border-left: 5px solid white;*/
+    opacity: .6;
+}
+.descUnique {
+    flex-basis: 25%;
+    padding-right: 2%;
+    /*border-bottom-width: 3px;*/
+    /*border-left: 5px solid white;*/
     opacity: .6;
 }
 .example{
@@ -85,30 +211,8 @@ img{
     text-transform: none;
     letter-spacing: 0;
 }
-.infocard {
-    background-color: grey;
-    z-index: 1;
-    /*position: absolute;*/
-    display: flex;
-    align-self: stretch;
-    text-align: left;
-    border-top: 1px solid black;
-}
 .subcats{
     margin-bottom: 60px;
-}
-
-.smalllegend_k12,.smalllegend_github{
-    font-family: 'IBM Plex Serif';
-    font-size: 16px;
-    line-height: 30px;
-    /*color: #f9a260;*/
-}
-.smalllegend_k12{
-    color: #ffa059;
-}
-.smalllegend_github{
-    color: #5ecee5;
 }
 
 /*__________________________________________viz attributes here*/
@@ -123,9 +227,6 @@ img{
     justify-content: center;
     align-content: center;
     /*justify-content: flex-start;*/
-}
-#viz2{
-    background-color: snow;
 }
 .firstCont, .secCont{
     display: flex;
@@ -144,7 +245,7 @@ svg.dotsViz{
 /*__________________________________________header attributes here*/
   .countries {
     fill: none;
-    stroke: #fff;
+    stroke: #5b2e90;
     stroke-linejoin: round;
   }
   .legendThreshold {
@@ -157,16 +258,7 @@ svg.dotsViz{
       font-weight: bold;
   }
 
-
-
 /*__________________________________________type attributes here*/
-.h01{
-    font-size: 90px;
-    line-height: 86px;
-    font-weight: 300;
-    color:#5b2e90;
-    margin-bottom: 60px;
-}
 .nodelabel{
     fill: black;
     z-index: 1;
@@ -175,17 +267,19 @@ svg.dotsViz{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-/*.circleThemes{*/
-    /*z-index: 0;*/
-/*    stroke: snow;*/
-/*    stroke-width: 2px;*/
-/*    opacity: 0.5;*/
-/*}*/
+
 h1,h2,h3,h4,h5,h6{
+    font-family: 'Merriweather';
     color: #5b2e90;
-    font-weight: 700;
+    font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 0.2px;    
+    letter-spacing: 0.7px;    
+}
+h2{
+    font-size: 46px;
+    line-height: 42px;
+    width: 50%;
+    letter-spacing: 0.1px;    
 }
 .strong1 {
     font-weight: 900;
@@ -196,14 +290,13 @@ h1,h2,h3,h4,h5,h6{
     border-bottom: 3px solid #5ecee5;
 }
 .BigNumber {
-    font-size: 42px;
-    line-height: 38px;
-    font-weight: 300;
+    font-size: 24px;
+    font-weight: 700;
     color: white;
 }
 .detalhe{
-    border-top: 1px solid black;
-    padding-top: 3%;
+    /*border-top: 1px solid black;*/
+    /*padding-top: 3%;*/
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
