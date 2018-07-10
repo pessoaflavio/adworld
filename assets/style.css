@@ -16,10 +16,17 @@ footer{
     background-color: black;
     width: 100%;
 }
+a{
+    color: #5b2e90;
+}
+a:hover{
+    font-weight: 800;
+    color: #5b2e90;
+}
 
 header{
     position: fixed;
-    background-color: #5b2e90;
+    background-color: ;
     width: 100%;
     padding: 5px;
     font-size: 11px;
@@ -82,7 +89,6 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
 }
 #part1{
     /*background-color: #b4adcc;*/
@@ -104,12 +110,14 @@ header{
 }
 #part4{
     background: rgb(233,216,231);
-background: linear-gradient(0deg, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 100%);
+    background: -moz-linear-gradient(bottom, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 100%);
+    background: -o-linear-gradient(bottom, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 100%);
+    background: linear-gradient(to top, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 100%);
 }
 .vizcontainer {
     display: flex;
     flex-direction: row;
-    /*align-self: stretch;*/
     justify-content: center;
 }
 .intro_context {
@@ -119,8 +127,8 @@ background: linear-gradient(0deg, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 10
     max-width: 1000px;
 }
 .titulo{
-    font-size: 80px;
-    line-height: 75px;
+    font-size: 78px;
+    line-height: 76px;
     font-family: 'Merriweather';
     font-weight: 900;
     flex-basis: 40%;
@@ -159,7 +167,44 @@ background: linear-gradient(0deg, rgba(233,216,231,1) 0%, rgba(211,223,218,1) 10
     position: absolute;
     left: 100px;
 }
-
+.sectionHolder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*background-color: yellow;*/
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.bullet{
+    border-right: 1px solid black;
+    padding-right: 20px;
+    /*background-color: pink;*/
+}
+.linhafina{
+    padding-top: 13px;
+    letter-spacing: 0.2;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 15px;
+    text-transform: uppercase;
+}
+.sectionDesc{
+    padding-left: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #5b2e90;
+    font-size: 44px;
+    line-height: 43px;
+    /*background-color: lightblue;*/
+}
+.bullet_txt{
+    font-size: 140px;
+    line-height: 160px;
+    color: #5b2e90;
+    font-weight: 300;
+}
 img{
     width: 100%;
     height: auto;
@@ -168,7 +213,9 @@ svg{
     max-width: 1300px;
     max-height: 700px;
 }
-
+svg.secondViz{
+    max-width: 2000px;
+}
 .valueHolder {
     display: flex;
     flex-direction: row;
@@ -184,17 +231,26 @@ svg{
 ._holder {
     flex-basis: 25%;
     padding: 1%;
-    /*border-bottom-width: 3px;*/
-    /*border-left: 5px solid white;*/
     opacity: .6;
 }
 .descUnique {
     flex-basis: 25%;
     padding-right: 2%;
-    /*border-bottom-width: 3px;*/
-    /*border-left: 5px solid white;*/
     opacity: .6;
 }
+/*new possible tooltip*/
+/*div.example {*/
+/*  position: absolute;*/
+/*  text-align: center;*/
+/*  width: 100px;*/
+/*  height: 100px;*/
+/*  padding: 2px;*/
+/*  font: 12px sans-serif;*/
+/*  background: lightsteelblue;*/
+/*  border: 0px;*/
+/*  border-radius: 8px;*/
+/*  pointer-events: none;*/
+/*}*/
 .example{
     font-size: 13px;
     margin-top: 30px;
@@ -215,19 +271,21 @@ svg{
 .subcats{
     margin-bottom: 60px;
 }
+.numeroInterno{
+    font-size: 26px;
+    color: #5b2e90;
+    font-weight: 700;
+}
 
 /*__________________________________________viz attributes here*/
 
 #viz0,#viz1,#viz2,#viz3,#viz4 {
     display: flex;
     width: 100%;
-    /*height: auto;*/
-    /*overflow: auto;*/
     box-sizing: border-box;
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    /*justify-content: flex-start;*/
 }
 .firstCont, .secCont{
     display: flex;
@@ -236,10 +294,6 @@ svg{
 .thirdCont{
     display: flex;
     flex-basis: 50%;
-}
-svg.dotsViz{
-    border: 1px dashed lightpink;
-    border-top-color: white;
 }
 
 
@@ -261,26 +315,18 @@ svg.dotsViz{
 
 /*__________________________________________type attributes here*/
 .nodelabel{
-    fill: black;
     z-index: 1;
     font-size: 14px;
-    text-anchor: middle;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-family: 'Merriweather';
+    font-family: 'Open Sans';
     color: #5b2e90;
-    font-weight: 300;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.7px;    
-}
-h2{
-    font-size: 46px;
-    line-height: 42px;
-    width: 50%;
-    letter-spacing: 0.1px;    
+    letter-spacing: 1px;    
 }
 .strong1 {
     font-weight: 900;

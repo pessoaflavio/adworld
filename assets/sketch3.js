@@ -242,12 +242,12 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     .attr('class','_holder')
     .attr('id','prataholder')
     .style('background-color', function(d){
-        if (d.b_valor !== '') return '#ff99b1';
+        if (d.p_valor !== '') return '#ff99b1';
         else return null;
     })
     .style('height', function(d){return d.p_valor*7 + 'px'})
     .html(function(d){
-        if (d.b_valor !== '') return '<span class="BigNumber">' + d.p_valor + '%</span>';
+        if (d.p_valor !== '') return '<span class="BigNumber">' + d.p_valor + '%</span>';
         else return null;
     })
     .on('mouseenter', mouseON3)
@@ -380,6 +380,8 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     ;
     
     }
+    
+    
     
     div1
     .append('div')
