@@ -108,17 +108,17 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     .style('border-left', 'none')
     .style('height', function(d){return d.gp_valor*7 + 'px'})
     .html(function(d){return '<span class="BigNumber">' + d.gp_valor + '%</span>'})
-    .on('mouseenter', mouseON1)
-    .on('mouseleave', mouseOut1)
+    .on('mouseover', mouseON1)
+    .on('mouseout', mouseOut1)
     ;
     
     descHolder
     .append('div')
     .attr('class', 'descUnique')
     .attr('id', 'gpD')
-    .html(function(d){return '<p class="detalhe">' + d.gp_nome + '</p>'})
-    .on('mouseenter', mouseON1)
-    .on('mouseleave', mouseOut1)
+    .html(function(d){return '<p class="detalhe"><b>Grand Prix</b><br>' + d.gp_nome + '</p>'})
+    .on('mouseover', mouseON1)
+    .on('mouseout', mouseOut1)
     ;
     
     function mouseON1(d,i){
@@ -177,17 +177,17 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
     .style('background-color', '#f98646')
     .style('height', function(d){return d.o_valor*7 + 'px'})
     .html(function(d){return '<span class="BigNumber">' + d.o_valor + '%</span>'})
-    .on('mouseenter', mouseON2)
-    .on('mouseleave', mouseOut2)
+    .on('mouseover', mouseON2)
+    .on('mouseout', mouseOut2)
     ;
     
     descHolder
     .append('div')
     .attr('class', 'descUnique')
     .attr('id', 'ouroD')
-    .html(function(d){return '<p class="detalhe">' + d.o_nome + '</p>'})
-    .on('mouseenter', mouseON2)
-    .on('mouseleave', mouseOut2)
+    .html(function(d){return '<p class="detalhe"><b>Ouro</b><br>' + d.o_nome + '</p>'})
+    .on('mouseover', mouseON2)
+    .on('mouseout', mouseOut2)
     ;
     
     function mouseON2(d,i){
@@ -250,17 +250,17 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
         if (d.p_valor !== '') return '<span class="BigNumber">' + d.p_valor + '%</span>';
         else return null;
     })
-    .on('mouseenter', mouseON3)
-    .on('mouseleave', mouseOut3)
+    .on('mouseover', mouseON3)
+    .on('mouseout', mouseOut3)
     ;
     
     descHolder
     .append('div')
     .attr('class', 'descUnique')
     .attr('id', 'prataD')
-    .html(function(d){return '<p class="detalhe">' + d.p_nome + '</p>'})
-    .on('mouseenter', mouseON3)
-    .on('mouseleave', mouseOut3)
+    .html(function(d){return '<p class="detalhe"><b>Prata</b><br>' + d.p_nome + '</p>'})
+    .on('mouseover', mouseON3)
+    .on('mouseout', mouseOut3)
     ;
     
     function mouseON3(d,i){
@@ -322,17 +322,17 @@ d3.csv('data/DadosSubCategorias.csv', function(error, data)
         if (d.b_valor !== '') return '<span class="BigNumber">' + d.b_valor + '%</span>';
         else return null;
     })
-    .on('mouseenter', mouseON4)
-    .on('mouseleave', mouseOut4)
+    .on('mouseover', mouseON4)
+    .on('mouseout', mouseOut4)
     ;
     
     descHolder
     .append('div')
     .attr('class', 'descUnique')
     .attr('id', 'bronzeD')
-    .html(function(d){return '<p class="detalhe">' + d.b_nome + '</p>'})
-    .on('mouseenter', mouseON4)
-    .on('mouseleave', mouseOut4)
+    .html(function(d){return '<p class="detalhe"><b>Bronze</b><br>' + d.b_nome + '</p>'})
+    .on('mouseover', mouseON4)
+    .on('mouseout', mouseOut4)
     ;
     
     function mouseON4(d,i){
