@@ -12,7 +12,7 @@ console.log(data);
 var svg = d3
 .select('#viz1')
 .append('svg')
-.attr('width', '100%')
+.attr('width', '1000px')
 .attr('height', '550px')
 .call(responsivefy)
 ;

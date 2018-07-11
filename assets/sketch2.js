@@ -25,7 +25,7 @@ var svg = d3
 .select('#viz2')
 .append('svg')
 .attr('class', 'secondViz')
-.attr('width', '100%')
+.attr('width', '1000px')
 .attr('height', '450px')
 .call(responsivefy)
 ;

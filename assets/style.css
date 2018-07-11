@@ -236,12 +236,14 @@ svg.secondViz{
 
 /*_______viz attributes here*/
 #viz0,#viz1,#viz2,#viz3,#viz4 {
+    /*background-color: yellow;*/
     display: flex;
     width: 100%;
     box-sizing: border-box;
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    max-width: 1000px;
 }
 
 
@@ -289,7 +291,13 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /*_______media queries*/
-@media only screen and (max-width: 800px) {
+/*@media only screen */
+/*    and (min-device-width: 320px) */
+/*    and (max-width: 800px)*/
+
+
+@media screen and (max-width: 800px)
+  {
     body{
     flex-direction: column;
     }
@@ -308,8 +316,10 @@ h1,h2,h3,h4,h5,h6{
         flex-direction: column;
         justify-content: flex-start;
         border-right: 0px;
+        
     }
     .titulo{
+        padding-right: 0px;
         padding-top: 20px;
         padding-bottom: 20px;
         flex-direction: column;
@@ -317,11 +327,9 @@ h1,h2,h3,h4,h5,h6{
         line-height: 48px;
         font-family: 'Merriweather';
         font-weight: 900;
-        /*flex-basis: 100%;*/
         margin-right: 0px;
         color: #5b2e90;
         border-right: 0px;
-        /*border-top: 1px solid black;*/
         border-bottom: 1px solid black;
     }
     .linhafina{
@@ -329,12 +337,12 @@ h1,h2,h3,h4,h5,h6{
         border-top: 1px solid black;
     }
     .small_int{
+        padding-right: 0px;
+        margin-left: 0px;
         flex-direction: column;
-        /*flex-basis: 100%;*/
         font-size: 15px;
         padding-left: 0px;
         padding-bottom: 0px;
-        /*border-top: 1px solid black;*/
         border-bottom: 1px solid black;
     }
     .final{
@@ -397,6 +405,9 @@ h1,h2,h3,h4,h5,h6{
         text-transform: uppercase;
         letter-spacing: 0px;
     }
-
+    /*svg{*/
+    /*    max-width: 400px;*/
+    /*    max-height: 300px;*/
+    /*}*/
 
 }
